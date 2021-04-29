@@ -1,0 +1,302 @@
+:root {
+    --blanco: #ffffff;
+    --negro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #DFE9f3;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+
+.servicios,
+.nav-principal,
+.formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
+/*1rem = 10px */
+
+body {
+    font-size: 16px;
+    font-family: 'Krub', sans-serif;
+    /* degradado de fondo*/
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+.titulo span {
+    font-size: 2rem;
+}
+
+.bg {
+    background-color: var(--secundario);
+}
+
+.contenedor {
+    /* max --> toma 100rem como máximo */
+    max-width: 100rem;
+    margin: 0 auto;
+}
+
+.sombra {
+    /* el webkit es un prefijo para chrome. En la pag Can i use 
+    se puede saber el soporte para cada navegador*/
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(97, 97, 97, 0.73);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(97, 97, 97, 0.73);
+    box-shadow: 0px 5px 15px 0px rgba(97, 97, 97, 0.73);
+    background-color: var(--blanco);
+    padding: 2rem;
+    /* el margin se puede colocar en esta clase para separarlos 
+    desde arriba del hero o se puede poner en el hero
+    como: margin-bottom, para separarlos desde abajo de la class hero*/
+    margin-top: 3rem;
+    border-radius: 1rem;
+}
+
+.boton {
+    background-color: var(--secundario);
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    color: var(--blanco);
+    font-size: 2rem;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    /* bold = 700*/
+    font-weight: bold;
+    width: 80%;
+    text-align: center;
+    text-transform: uppercase;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.w-sm-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-sm-100 {
+        width: auto;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+.nav-principal {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .nav-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.nav-principal a {
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+.nav-principal a:hover {
+    background-color: var(--primario);
+    color: var(--negro);
+}
+
+.hero {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    height: 450px;
+    position: relative;
+}
+
+.cont-hero {
+    position: absolute;
+    /*sintaxis anterior*/
+    background-color: rgba(0, 0, 0, .7);
+    /* sintaxis nueva*/
+    background-color: rgb(0 0 0 / 70%);
+    width: 100%;
+    height: 100%;
+    /*alinear horizontal y verticalmete*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cont-hero h2,
+.cont-hero p {
+    color: var(--blanco);
+}
+
+.ubi {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+/* media query se cumple a partir  768px si es menor queda como si
+       ese codigo no estuviese */
+
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        /*repetir 3 columnas de una fraccion */
+        grid-template-columns: repeat(3, 1fr);
+        /*separación de columnas*/
+        column-gap: 1rem;
+    }
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    /*los h3 por default tiene font-weight: bold*/
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+.servicios p {
+    line-height: 2;
+}
+
+.servicio .icono {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.formulario {
+    background-color: var(--gris);
+    /* Utiliza el valor mas pequeño*/
+    width: min(60rem, 100%);
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+@media (min-width: 768px) {
+    .cont-campo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 20rem;
+        /*separación de columnas*/
+        column-gap: 1rem;
+    }
+    /* nth-child(): si hay varios elementos con la misma clase, puedes seleccionar uno de ellos con este seudoselector. 
+    nth-child(numero deseado)*/
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+        /* selecciona un campo que desees y se puede mover. En este caso se selecciono la clase campo numero 3 y se extendio
+    el elemento input de la columna 1 a la 3 --->   grid-column: 1 / 3*/
+        grid-column: 1 / 3;
+    }
+}
+
+
+}
+.campo {
+    margin: 1rem auto;
+}
+.campo label {
+    color: var(--blanco);
+    font-weight: 700;
+    margin-bottom: .5rem;
+    display: block;
+}
+.input-text {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+}
+.campo textarea {
+    height: 15rem;
+}
+.footer {
+    text-align: center;
+}
+
+/* selector de atributos
+    .campo input[type="text"],
+    .campo input[type="tel"],{}
+*/
+
+/*.enviar .boton {
+    width: 100%;
+} esto quiere decir que: requiere todas las caracteristicas de la clase boton pero en la clase alinear 
+el ancho es de 100% */
